@@ -15,7 +15,7 @@ var allURLs []string
 var bucketFileRE = regexp.MustCompile(`(?m)(?i)<key>(.+?)<\/key>`)
 var bucketSizeRE = regexp.MustCompile(`(?i)<Size>(.+?)<\/Size>`)
 var urlRE = regexp.MustCompile(`https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`)
-var urlValidation = regexp.MustCompile(`^(?:(?:https?|ftp):\/\/)?(?:www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+(?:\/[^\s]*)?$`)
+var urlValidation = regexp.MustCompile(`^(?:(?:https?|ftp):\/\/)?(?:www\.)?[a-zA-Z0-9-_]+(\.[a-zA-Z0-9-]+)+(?:\/[^\s]*)?$`)
 var urlsRE = regexp.MustCompile(`(http[s]?:\/\/[^\s\/]+)\b`)
 var blacklistExtensions []string
 var isBlacklisted int
@@ -241,14 +241,14 @@ func uniqueStrings(input []string) []string {
 }
 
 const banner = `
-,.--'''''''''--.,  ____             _        _   _                 _   
-(\'-.,_____,.-'/) |  _ \           | |      | | | |               | |  
- \\-.,_____,.-//  | |_) |_   _  ___| | _____| |_| |     ___   ___ | |_ 
- ;\\         //|  |  _ <| | | |/ __| |/ / _ \ __| |    / _ \ / _ \| __|
- | \\  ___  // |  | |_) | |_| | (__|   <  __/ |_| |___| (_) | (_) | |_ 
- |  '-[___]-'  |  |____/ \__,_|\___|_|\_\___|\__|______\___/ \___/ \__|
- |             |                                                       
+,.--'''''''''--., 
+(\'-.,_____,.-'/)  ____             _        _   _                 _   
+ \\-.,_____,.-//  |  _ \           | |      | | | |               | |  
+ ;\\         //|  | |_) |_   _  ___| | _____| |_| |     ___   ___ | |_ 
+ | \\  ___  // |  |  _ <| | | |/ __| |/ / _ \ __| |    / _ \ / _ \| __|
+ |  '-[___]-'  |  | |_) | |_| | (__|   <  __/ |_| |___| (_) | (_) | |_ 
+ |             |  |____/ \__,_|\___|_|\_\___|\__|______\___/ \___/ \__|                                                     
+ |             |  
  |             |  An Automated S3 Bucket Inspector                                             
- |             |  Developed by Umair Nehri (@umair9747) and Owais Shaikh (@4f77616973)             
  ''-.,_____,.-''                                                        
 `
